@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar"
 import Podcasts from "../components/Podcasts"
 
 function MainView() {
+
   return (
     <>
       <SearchBar />

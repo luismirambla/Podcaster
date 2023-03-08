@@ -1,20 +1,21 @@
 import React from "react"
 import './PodcastCard.css'
 
-const PodcastCard = () => {
+const PodcastCard = (props) => {
+  const { podcast } = props
 
   return (
     <button className="podcast-card" onClick={() => console.log('podcast')}>
       <div className="podcast-img-container">
         <img
           className="podcast-img"
-          src={"https://images.assetsdelivery.com/compings_v2/victory1103/victory11032005/victory1103200500007.jpg"}
+          src={podcast["im:image"][2].label}
           alt={'tiny desk concerts'}
         />
       </div>
       <div className="card-body">
-        <p className="card-title">Tiny Desk Concerts</p>
-        <p className="card-author">Author: Mac Miller</p>
+        <p className="card-title">{podcast["im:name"].label}</p>
+        <p className="card-author">Author: {podcast["im:artist"].label}</p>
       </div>
     </button>
   )
