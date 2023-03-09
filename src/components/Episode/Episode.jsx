@@ -10,7 +10,7 @@ const Episode = (props) => {
 
   return (
     <div className="detail-container">
-      {episodeFound ?
+      {episodeFound &&
         <>
           <h1 className="detail-title">{episodeFound.trackName}</h1>
           <p className="detail-description">{episodeFound.description}</p>
@@ -18,8 +18,6 @@ const Episode = (props) => {
             <source src={episodeFound.episodeUrl} type="audio/mpeg" />
           </audio>
         </>
-        :
-        <div>Cargando</div>
       }
     </div>
   )

@@ -10,7 +10,7 @@ const PodcastInfo = (props) => {
 
   return (
       <div className="podcast-info">
-        {podcastFound ?
+        {podcastFound &&
           <>
             <img className="podcast-info-img" src={podcastFound["im:image"][2].label} alt={podcastFound.title} />
             <hr />
@@ -24,8 +24,6 @@ const PodcastInfo = (props) => {
               <p className="podcast-description">{podcastFound.summary.label}</p>
             </div>
           </>
-          :
-          <div>Cargando</div>
         }
       </div>
   )

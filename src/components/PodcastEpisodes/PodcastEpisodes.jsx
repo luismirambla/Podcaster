@@ -5,13 +5,12 @@ import './PodcastEpisodes.css'
 
 const PodcastEpisodes = (props) => {
   const { podcastId } = props
-  const { PodcastDetails } = useContext(PodcastsContext)
+  const { PodcastDetails, loading } = useContext(PodcastsContext)
 
   const timeFormat = (time) => {
     const seg = Math.floor((time / 1000) % 60)
     const min = Math.floor((time / 1000 / 60) % 60)
     const hrs = Math.floor(time / 1000 / 60 / 60)
-  
     const timeFormated = `${hrs > 0 ? hrs.toString().padStart(2, "0") + ":" : ''}${min.toString().padStart(2, "0")}:${seg.toString().padStart(2, "0")}`
 
     return timeFormated
@@ -19,7 +18,7 @@ const PodcastEpisodes = (props) => {
 
   return (
     <div className="podcast-episodes">
-      <h1>Episodes: {PodcastDetails.length}</h1>
+      <h1>Episodes: {`${!loading && PodcastDetails.length}`}</h1>
       <div className="table-episodes">
         <div className="table-header">
           <p className="episode-title header">Title</p>
@@ -27,7 +26,7 @@ const PodcastEpisodes = (props) => {
           <p className="episode-column header">Duration</p>
         </div>
         <hr />
-        {PodcastDetails.map((podcast, index) => (
+        {!loading && PodcastDetails.map((podcast, index) => (
           <div key={podcast.trackId} >
             <div className="episode-container" style={{backgroundColor: `${(index + 1) % 2 ? 'whitesmoke' : 'white'}`}} >
               <p className="episode-title"><Link className="episode-link" to={`/podcast/${podcastId}/episode/${podcast.trackId}`}>{podcast.trackName}</Link></p>
