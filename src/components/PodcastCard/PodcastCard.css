@@ -14,14 +14,15 @@
   align-items: center;
   outline: none !important;
   border-style: none;
-  box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
   margin-top: 80px;
   text-decoration: none;
 }
 
 .podcast-card:hover {
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.4);
-  transform: translateY(-3px);
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .podcast-img-container {
@@ -46,13 +47,14 @@
 .card-title {
   margin-top: -5px;
   color: black;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 13px;
   text-transform: uppercase;
 }
 
 .card-author {
-  margin-top: -5px;
+  margin-top: -7px;
   font-size: 12px;
-  color: gray;
+  font-weight: 500;
+  color: #797979;
 }

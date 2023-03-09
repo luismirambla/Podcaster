@@ -25,10 +25,10 @@ const PodcastEpisodes = (props) => {
           <p className="episode-column header">Date</p>
           <p className="episode-column header">Duration</p>
         </div>
-        <hr />
+        <hr className="table-header-hr"/>
         {!loading && PodcastDetails.map((podcast, index) => (
           <div key={podcast.trackId} >
-            <div className="episode-container" style={{backgroundColor: `${(index + 1) % 2 ? 'whitesmoke' : 'white'}`}} >
+            <div className="episode-container" style={{backgroundColor: `${(index + 1) % 2 ? '#F6F6F6' : '#FFFFFF'}`}} >
               <p className="episode-title"><Link className="episode-link" to={`/podcast/${podcastId}/episode/${podcast.trackId}`}>{podcast.trackName}</Link></p>
               <p className="episode-column">{`${new Date(podcast.releaseDate).toLocaleDateString('es-ES')}`}</p>
               <p className="episode-column">{timeFormat(podcast.trackTimeMillis)}</p>

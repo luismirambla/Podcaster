@@ -1,10 +1,15 @@
 .header-app {
   width: 100%;
-  margin-top: -10px;
+  margin-top: 20px;
+}
+
+.header-app h2 {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .header-app hr {
-  opacity: 0.4;
+  opacity: 0.2;
   margin-top: -10px;
 }
 
@@ -15,6 +20,6 @@
 }
 
 .title-app {
-  color: steelblue;
+  color: #0F7EAE;
   text-decoration: none;
 }
