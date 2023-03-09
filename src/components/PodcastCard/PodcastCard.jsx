@@ -8,8 +8,8 @@ const PodcastCard = () => {
 
   return (
     <div className="podcast-grid">
-      {Podcasts !== undefined ? 
-        Podcasts[0].map((podcast) => (
+      {Podcasts.length > 0 ? 
+        Podcasts.map((podcast) => (
           <Link key={podcast.id.attributes['im:id']} className="podcast-card" to={`/podcast/${podcast.id.attributes['im:id']}`}>
             <div className="podcast-img-container">
               <img

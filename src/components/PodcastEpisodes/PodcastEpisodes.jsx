@@ -28,14 +28,14 @@ const PodcastEpisodes = (props) => {
         </div>
         <hr />
         {PodcastDetails.map((podcast, index) => (
-          <>
-            <div key={podcast.trackId} className="episode-container" style={{backgroundColor: `${(index + 1) % 2 ? 'whitesmoke' : 'white'}`}} >
+          <div key={podcast.trackId} >
+            <div className="episode-container" style={{backgroundColor: `${(index + 1) % 2 ? 'whitesmoke' : 'white'}`}} >
               <p className="episode-title"><Link className="episode-link" to={`/podcast/${podcastId}/episode/${podcast.trackId}`}>{podcast.trackName}</Link></p>
               <p className="episode-column">{`${new Date(podcast.releaseDate).toLocaleDateString('es-ES')}`}</p>
               <p className="episode-column">{timeFormat(podcast.trackTimeMillis)}</p>
             </div>
             {PodcastDetails.length - 1 !== index && <hr />}
-          </>
+          </div>
         ))}
       </div>
     </div>

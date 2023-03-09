@@ -9,11 +9,12 @@ function PodcastDetails() {
   let location = useLocation()
   const { setDetails } = useContext(PodcastsContext)
   const id = location.pathname.split('/')[2]
-  const limit = 99
+  const limit = 100
 
   const fetchPodcastDetails = async (id, limit) => {
     try {
       const data = await getPodcastData(id, limit)
+      data.results.shift()
       setDetails(data.results)
     } catch (error) {}
   }
@@ -24,7 +25,7 @@ function PodcastDetails() {
 
   return (
     <div style={{display: 'flex', flexDirection: 'row', height: '100%'}}>
-      <PodcastInfo />
+      <PodcastInfo podcastId={id}/>
       <PodcastEpisodes podcastId={id}/>
     </div>
   )
