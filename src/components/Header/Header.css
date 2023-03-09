@@ -1,0 +1,20 @@
+.header-app {
+  width: 100%;
+  margin-top: -10px;
+}
+
+.header-app hr {
+  opacity: 0.4;
+  margin-top: -10px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title-app {
+  color: steelblue;
+  text-decoration: none;
+}

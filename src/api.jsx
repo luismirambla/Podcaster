@@ -1,4 +1,4 @@
-export const getPodcasts = async (limit = 100, genre = 1310) => {
+export const getPodcasts = async (limit, genre) => {
   try {
     const url = `https://itunes.apple.com/us/rss/toppodcasts/limit=${limit}/genre=${genre}/json`
     const response = await fetch(url)
@@ -8,7 +8,7 @@ export const getPodcasts = async (limit = 100, genre = 1310) => {
   } catch (error) {}
 }
 
-export const getPodcastData = async (id = 934552872, limit = 100) => {
+export const getPodcastData = async (id, limit) => {
   try {
     
     const url = `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${limit}`

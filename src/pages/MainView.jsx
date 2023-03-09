@@ -1,6 +1,6 @@
 import React from "react"
-import SearchBar from "../components/SearchBar"
-import Podcasts from "../components/Podcasts"
+import SearchBar from "../components/SearchBar/SearchBar"
+import Podcasts from "../components/Podcasts/Podcasts"
 
 function MainView() {
 

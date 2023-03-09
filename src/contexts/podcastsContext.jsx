@@ -1,7 +1,8 @@
 import React from "react"
 
 const PodcastsContext = React.createContext({
-    Podcasts: []
+    Podcasts: [],
+    PodcastDetails: []
 })
 
 export const PodcastsProvider = PodcastsContext.Provider
