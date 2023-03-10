@@ -18,7 +18,7 @@ const PodcastEpisodes = (props) => {
 
   return (
     <div className="podcast-episodes">
-      <h1>Episodes: {`${!loading && PodcastDetails.length}`}</h1>
+      <h1>Episodes: {`${!loading ? PodcastDetails.length : ''}`}</h1>
       <div className="table-episodes">
         <div className="table-header">
           <p className="episode-title header">Title</p>
