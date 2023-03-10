@@ -8,11 +8,13 @@ import MainView from './pages/MainView'
 import PodcastDetails from "./pages/PodcastDetails"
 import EpisodeDetails from "./pages/EpisodeDetails"
 
+const localStorageKey = 'podcasts'
+
 function App() {
-  const localStorageKey = 'podcasts'
-  const [podcastsData, setPodcastsData] = useState(JSON.parse(window.localStorage.getItem(localStorageKey)) || [])
+  const [podcastsData, setPodcastsData] = useState(JSON.parse(localStorage.getItem(localStorageKey)) || [])
   const [details, setDetails] = useState([])
   const [loading, setLoading] = useState(false)
+  const [saveDate, setSaveDate] = useState(localStorage.getItem(`${localStorageKey}_fecha`))
   const limit = 100
   const genre = 1310
 
@@ -21,21 +23,25 @@ function App() {
       setLoading(true)
       const data = await getPodcasts(limit, genre)
       setPodcastsData(data.feed.entry)
-      window.localStorage.setItem(localStorageKey, JSON.stringify(data.feed.entry))
+      localStorage.setItem(localStorageKey, JSON.stringify(data.feed.entry))
+      localStorage.setItem(`${localStorageKey}_fecha`, Date.now())
+      setSaveDate(localStorage.getItem(`${localStorageKey}_fecha`))
       setLoading(false)
     } catch (error) {}
   }
 
   useEffect(() => {
-    if (!window.localStorage.getItem(localStorageKey)) {
+    if (!localStorage.getItem(localStorageKey) || saveDate && (Date.now() - saveDate) >= 86400000) {
+      localStorage.removeItem(localStorageKey)
+      localStorage.removeItem(`${localStorageKey}_fecha`)
       fetchPodcasts(limit, genre)
     } else {
-      setPodcastsData(JSON.parse(window.localStorage.getItem(localStorageKey)))
+      setPodcastsData(JSON.parse(localStorage.getItem(localStorageKey)))
     }
   }, [])
   
   return (
-    <PodcastsProvider value={{Podcasts: podcastsData, PodcastDetails: details, setDetails, loading, setLoading}}>
+    <PodcastsProvider value={{Podcasts: podcastsData, PodcastDetails: details, setPodcastsData, setDetails, loading, setLoading}}>
       <Router>
         <Header />
         <Routes>
