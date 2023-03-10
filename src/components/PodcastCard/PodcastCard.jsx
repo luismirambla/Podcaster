@@ -19,8 +19,18 @@ const PodcastCard = () => {
               />
             </div>
             <div className="card-body">
-              <p className="card-title" title={podcast["im:name"].label}>{podcast["im:name"].label}</p>
-              <p className="card-author" title={podcast["im:artist"].label}>Author: {podcast["im:artist"].label}</p>
+              <p className="card-title" title={podcast["im:name"].label}>
+                {podcast["im:name"].label.length > 29 ? 
+                  podcast["im:name"].label.substring(0, 29) + "..."
+                  : 
+                  podcast["im:name"].label}
+              </p>
+              <p className="card-author" title={podcast["im:artist"].label}>
+                {podcast["im:artist"].label.length > 18 ? 
+                  `Author: ${podcast["im:artist"].label.substring(0, 18)}...`
+                  : 
+                  `Author: ${podcast["im:artist"].label}`}
+              </p>
             </div>
           </Link>
         ))

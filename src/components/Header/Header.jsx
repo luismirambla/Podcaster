@@ -11,7 +11,7 @@ const Header = () => {
     <div className="header-app">
       <div className="header-container">
         <Link className='title-app' to='/'>
-          <h2>Podcaster</h2>
+          <h1>Podcaster</h1>
         </Link>
         {loading &&
           <Spinner />

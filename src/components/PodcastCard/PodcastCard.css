@@ -1,7 +1,8 @@
 .podcast-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  justify-items: center;
   padding: 0px 10px;
 }
 
@@ -38,9 +39,7 @@
 }
 
 .card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   padding: 5px 10px 10px 10px;
 }
 

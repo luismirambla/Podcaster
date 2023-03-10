@@ -1,6 +1,0 @@
-.podcasts-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 18px;
-  padding: 0px 10px;
-}
