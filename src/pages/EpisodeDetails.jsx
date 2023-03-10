@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import PodcastInfo from '../components/PodcastInfo/PodcastInfo'
-import Episode from '../components/Episode/Episode'
+import { Episode, PodcastInfo } from '../components'
 import PodcastsContext from '../contexts/podcastsContext'
 import { getPodcastData } from '../api'
 

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import SearchBar from '../components/SearchBar/SearchBar'
-import Podcasts from '../components/Podcasts/Podcasts'
+import { SearchBar, Podcasts } from '../components'
 import PodcastsContext from '../contexts/podcastsContext'
 import { getPodcasts } from '../api'
 
