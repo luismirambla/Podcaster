@@ -20,24 +20,29 @@ function App() {
 
   const fetchPodcasts = async (limit, genre) => {
     try {
-      setLoading(true)
-      const data = await getPodcasts(limit, genre)
-      setPodcastsData(data.feed.entry)
-      localStorage.setItem(localStorageKey, JSON.stringify(data.feed.entry))
-      localStorage.setItem(`${localStorageKey}_fecha`, Date.now())
-      setSaveDate(localStorage.getItem(`${localStorageKey}_fecha`))
-      setLoading(false)
+      if (!localStorage.getItem(localStorageKey) || saveDate && (Date.now() - saveDate) >= 86400000) {
+
+        localStorage.removeItem(localStorageKey)
+        localStorage.removeItem(`${localStorageKey}_fecha`)
+
+        setLoading(true)
+
+        const data = await getPodcasts(limit, genre)
+
+        setPodcastsData(data.feed.entry)
+        localStorage.setItem(localStorageKey, JSON.stringify(data.feed.entry))
+        localStorage.setItem(`${localStorageKey}_fecha`, Date.now())
+        setSaveDate(localStorage.getItem(`${localStorageKey}_fecha`))
+        
+        setLoading(false)
+      } else {
+        setPodcastsData(JSON.parse(localStorage.getItem(localStorageKey)))
+      }
     } catch (error) {}
   }
 
   useEffect(() => {
-    if (!localStorage.getItem(localStorageKey) || saveDate && (Date.now() - saveDate) >= 86400000) {
-      localStorage.removeItem(localStorageKey)
-      localStorage.removeItem(`${localStorageKey}_fecha`)
-      fetchPodcasts(limit, genre)
-    } else {
-      setPodcastsData(JSON.parse(localStorage.getItem(localStorageKey)))
-    }
+    fetchPodcasts(limit, genre)
   }, [])
   
   return (

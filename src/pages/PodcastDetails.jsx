@@ -14,26 +14,30 @@ function PodcastDetails() {
 
   const fetchPodcastDetails = async (id, limit) => {
     try {
-      setLoading(true)
-      const data = await getPodcastData(id, limit)
-      data.results.shift()
-      setDetails(data.results)
-      localStorage.setItem(id, JSON.stringify(data.results))
-      localStorage.setItem(`${id}_fecha`, Date.now())
-      setSaveDate(localStorage.getItem(`${id}_fecha`))
-      setLoading(false)
+      document.documentElement.scrollTop = 0
+      if (!localStorage.getItem(id) || saveDate && (Date.now() - saveDate) >= 10000) {
+        localStorage.removeItem(id)
+        localStorage.removeItem(`${id}_fecha`)
+
+        setLoading(true)
+
+        const data = await getPodcastData(id, limit)
+        data.results.shift()
+
+        setDetails(data.results)
+        localStorage.setItem(id, JSON.stringify(data.results))
+        localStorage.setItem(`${id}_fecha`, Date.now())
+        setSaveDate(localStorage.getItem(`${id}_fecha`))
+
+        setLoading(false)
+      } else {
+        setDetails(JSON.parse(localStorage.getItem(id)))
+      }
     } catch (error) {}
   }
 
   useEffect(() => {
-    document.documentElement.scrollTop = 0
-    if (!localStorage.getItem(id) || saveDate && (Date.now() - saveDate) >= 10000) {
-      localStorage.removeItem(id)
-      localStorage.removeItem(`${id}_fecha`)
-      fetchPodcastDetails(id, limit)
-    } else {
-      setDetails(JSON.parse(localStorage.getItem(id)))
-    }
+    fetchPodcastDetails(id, limit)
   }, [])
 
   return (
