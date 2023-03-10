@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react"
-import PodcastsContext from "../../contexts/podcastsContext"
+import React, { useContext, useState } from 'react'
+import PodcastsContext from '../../contexts/podcastsContext'
 import './SearchBar.css'
 
 const SearchBar = () => {
@@ -18,12 +18,12 @@ const SearchBar = () => {
   }) 
 
   return (
-    <div className="searchbar-container">
-      <div className="searchbar-result">
+    <div className='searchbar-container'>
+      <div className='searchbar-result'>
         <div>{Podcasts.length}</div>
       </div>
-      <div className="searchbar">
-        <input className='search' type='text' value={search} placeholder="Filter podcasts..." onChange={handleSearch} />
+      <div className='searchbar'>
+        <input className='search' type='text' value={search} placeholder='Filter podcasts...' onChange={handleSearch} />
       </div>
     </div>
   )

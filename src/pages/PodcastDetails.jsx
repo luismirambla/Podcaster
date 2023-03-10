@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
-import { getPodcastData } from "../api"
-import PodcastsContext from "../contexts/podcastsContext"
-import PodcastInfo from "../components/PodcastInfo/PodcastInfo"
-import PodcastEpisodes from "../components/PodcastEpisodes/PodcastEpisodes"
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { getPodcastData } from '../api'
+import PodcastsContext from '../contexts/podcastsContext'
+import PodcastInfo from '../components/PodcastInfo/PodcastInfo'
+import PodcastEpisodes from '../components/PodcastEpisodes/PodcastEpisodes'
 
 function PodcastDetails() {
   const { setDetails, setLoading } = useContext(PodcastsContext)

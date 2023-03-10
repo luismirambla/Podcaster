@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
-import SearchBar from "../components/SearchBar/SearchBar"
-import Podcasts from "../components/Podcasts/Podcasts"
-import PodcastsContext from "../contexts/podcastsContext"
-import { getPodcasts } from "../api"
+import React, { useContext, useEffect, useState } from 'react'
+import SearchBar from '../components/SearchBar/SearchBar'
+import Podcasts from '../components/Podcasts/Podcasts'
+import PodcastsContext from '../contexts/podcastsContext'
+import { getPodcasts } from '../api'
 
 const localStorageKey = 'podcasts'
 

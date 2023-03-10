@@ -1,5 +1,5 @@
-import React from "react"
-import PodcastCard from "../PodcastCard/PodcastCard"
+import React from 'react'
+import PodcastCard from '../PodcastCard/PodcastCard'
 
 
 const Podcasts = () => {

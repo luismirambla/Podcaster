@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { getPodcasts } from "./api"
-import { PodcastsProvider } from "./contexts/podcastsContext"
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { getPodcasts } from './api'
+import { PodcastsProvider } from './contexts/podcastsContext'
 import './App.css'
 import Header from './components/Header/Header'
 import MainView from './pages/MainView'
-import PodcastDetails from "./pages/PodcastDetails"
-import EpisodeDetails from "./pages/EpisodeDetails"
+import PodcastDetails from './pages/PodcastDetails'
+import EpisodeDetails from './pages/EpisodeDetails'
 
 const localStorageKey = 'podcasts'
 
@@ -50,9 +50,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" exact element={<MainView />} />
-          <Route path="/podcast/:podcastId" exact element={<PodcastDetails />} />
-          <Route path="/podcast/:podcastId/episode/:episodeId" exact element={<EpisodeDetails />} />
+          <Route path='/' exact element={<MainView />} />
+          <Route path='/podcast/:podcastId' exact element={<PodcastDetails />} />
+          <Route path='/podcast/:podcastId/episode/:episodeId' exact element={<EpisodeDetails />} />
         </Routes>
       </Router>
     </PodcastsProvider>
